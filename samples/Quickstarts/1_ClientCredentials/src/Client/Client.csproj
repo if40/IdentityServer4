@@ -10,4 +10,8 @@
     <PackageReference Include="IdentityModel" Version="3.10.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
 </Project>
