@@ -4,6 +4,7 @@
 using IdentityModel.Client;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -22,14 +23,16 @@ namespace Client
                 Console.WriteLine(disco.Error);
                 return;
             }
-
+            IDictionary<string, string> parameters =
+            new Dictionary<string, string>();
+            parameters["REALM"] = "";
             // request token
             var tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
             {
                 Address = disco.TokenEndpoint,
                 ClientId = "client",
                 ClientSecret = "secret",
-
+                Parameters = parameters,
                 Scope = "api1"
             });
             
